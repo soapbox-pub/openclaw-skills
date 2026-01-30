@@ -108,7 +108,7 @@ For most OpenCode tasks, **spawn a subagent** to keep the main chat clean:
 
 ```
 sessions_spawn:
-  task: "Read the opencode skill, then use OpenCode to create a landing page with contact form at ~/projects/coffee-shop"
+  task: "Read the opencode skill, then use OpenCode to create a landing page with contact form at <workspace>/projects/coffee-shop"
   label: "opencode-landing-page"
   runTimeoutSeconds: 660
 ```
@@ -117,14 +117,14 @@ sessions_spawn:
 
 The subagent should:
 1. **Read the opencode skill** to get correct syntax
-2. Create project directory in home (e.g., `~/projects/project-name`)
+2. Create project directory in home (e.g., `<workspace>/projects/project-name`)
 3. Run OpenCode with appropriate settings
 4. Report results back to main session
 
 **For editing existing projects:**
 ```
 sessions_spawn:
-  task: "Read the opencode skill, then use OpenCode to add authentication to the project at ~/projects/my-app"
+  task: "Read the opencode skill, then use OpenCode to add authentication to the project at <workspace>/projects/my-app"
   label: "opencode-add-auth"
   runTimeoutSeconds: 660
 ```
@@ -171,9 +171,9 @@ cat /path/to/project/index.html
 ### Create a New Project
 
 ```bash
-# Create directory in home
-mkdir -p ~/projects/my-project
-cd ~/projects/my-project
+# Create directory in workspace
+mkdir -p <workspace>/projects/my-project
+cd <workspace>/projects/my-project
 
 # Run OpenCode
 opencode run --model openrouter/anthropic/claude-sonnet-4.5 \
@@ -186,7 +186,7 @@ OpenCode works great for editing existing codebases:
 
 ```bash
 # Navigate to existing project
-cd ~/projects/my-website
+cd <workspace>/projects/my-website
 
 # Let OpenCode analyze and extend
 opencode run --model openrouter/anthropic/claude-sonnet-4.5 \

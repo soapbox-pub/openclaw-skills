@@ -34,7 +34,8 @@ When you are the subagent executing this skill, follow these steps:
 Clone the MKStack template into a new project directory:
 
 ```bash
-cd ~/projects
+mkdir -p projects
+cd projects
 git clone https://gitlab.com/soapbox-pub/mkstack.git <project-name>
 cd <project-name>
 rm README.md
@@ -51,12 +52,12 @@ git commit -m "Project created with MKStack: https://gitlab.com/soapbox-pub/mkst
 Use OpenCode to build the project based on the user's description:
 
 ```bash
-cd ~/projects/<project-name> && opencode run --model openrouter/anthropic/claude-sonnet-4.5 "[detailed project description]
+cd <workspace>/projects/<project-name> && opencode run --model openrouter/anthropic/claude-sonnet-4.5 "[detailed project description]
 ```
 
 **exec parameters:**
 - `pty: true` (required for OpenCode)
-- `workdir: ~/projects/<project-name>`
+- `workdir: <workspace>/projects/<project-name>`
 - `yieldMs: 600000` (blocks until completion)
 
 ### Step 3: Report Completion
@@ -79,5 +80,5 @@ MKStack projects come pre-configured with:
 - **Read both skills** - Subagent needs mkstack AND opencode skills
 - **Always use pty:true** - OpenCode requires a pseudo-terminal
 - **Use high yieldMs** - Blocks until completion instead of backgrounding
-- **Work in ~/projects/** - Keep projects organized in the projects directory
+- **Work in <workspace>/projects/** - Keep projects organized in the projects directory
 - **One project per directory** - Each MKStack project gets its own folder
