@@ -1,6 +1,6 @@
 ---
 name: opencode
-description: Use OpenCode for AI-powered code generation and development tasks. OpenCode can create files, build projects, and write code across multiple languages. Use when you need to generate code, create web pages, build applications, or perform coding tasks that would take multiple iterations.
+description: Use OpenCode for AI-powered code generation and development tasks. OpenCode can build and edit projects and write code across multiple languages. Use when you need to generate code, create web pages, build applications, update existing applications, or perform coding tasks that would take multiple iterations.
 ---
 
 # OpenCode Skill
@@ -19,10 +19,11 @@ OpenCode is an AI coding assistant (similar to Cursor, Windsurf, etc.) that can:
 ## When to Use
 
 Use OpenCode for:
-- Creating new projects (websites, apps, scripts)
-- Generating code files
-- Building prototypes quickly
-- Code-heavy tasks that would take multiple iterations
+- **Creating new projects** (websites, apps, scripts)
+- **Editing existing codebases** (adding features, refactoring, fixing bugs)
+- **Generating code files**
+- **Building prototypes quickly**
+- **Code-heavy tasks** that would take multiple iterations
 
 **Don't use for:**
 - Simple file operations (use write/edit tools instead)
@@ -106,15 +107,23 @@ For most OpenCode tasks, **spawn a subagent** to keep the main chat clean:
 
 ```
 sessions_spawn:
-  task: "Use OpenCode to create a landing page with contact form at /tmp/my-project"
+  task: "Use OpenCode to create a landing page with contact form at ~/projects/coffee-shop"
   label: "opencode-landing-page"
   runTimeoutSeconds: 660
 ```
 
 The subagent should:
-1. Create project directory
+1. Create project directory in home (e.g., `~/projects/project-name`)
 2. Run OpenCode with appropriate settings
 3. Report results back to main session
+
+**For editing existing projects:**
+```
+sessions_spawn:
+  task: "Use OpenCode to add authentication to the project at ~/projects/my-app"
+  label: "opencode-add-auth"
+  runTimeoutSeconds: 660
+```
 
 ### Direct Execution Pattern
 
@@ -158,25 +167,33 @@ cat /path/to/project/index.html
 ### Create a New Project
 
 ```bash
-# Create directory
-mkdir -p /tmp/my-project
-cd /tmp/my-project
+# Create directory in home
+mkdir -p ~/projects/my-project
+cd ~/projects/my-project
 
 # Run OpenCode
 opencode run --model openrouter/anthropic/claude-sonnet-4.5 \
   "Create a landing page for a coffee shop with menu, about section, and contact form. Use modern CSS, make it mobile responsive."
 ```
 
-### Add to Existing Project
+### Edit an Existing Project
+
+OpenCode works great for editing existing codebases:
 
 ```bash
-# Navigate to project
-cd /existing/project
+# Navigate to existing project
+cd ~/projects/my-website
 
 # Let OpenCode analyze and extend
 opencode run --model openrouter/anthropic/claude-sonnet-4.5 \
   "Add a dark mode toggle to this website"
 ```
+
+OpenCode will:
+1. Automatically analyze existing files in the directory
+2. Understand the project structure
+3. Make changes that fit the existing codebase
+4. Preserve your existing code while adding new features
 
 ### File Attachments
 
