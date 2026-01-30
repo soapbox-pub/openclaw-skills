@@ -107,20 +107,23 @@ For most OpenCode tasks, **spawn a subagent** to keep the main chat clean:
 
 ```
 sessions_spawn:
-  task: "Use OpenCode to create a landing page with contact form at ~/projects/coffee-shop"
+  task: "Read the opencode skill, then use OpenCode to create a landing page with contact form at ~/projects/coffee-shop"
   label: "opencode-landing-page"
   runTimeoutSeconds: 660
 ```
 
+**IMPORTANT**: Always tell the subagent to read the opencode skill first. Subagents don't inherit skill knowledge from the main session and will use incorrect syntax if they don't read the skill docs.
+
 The subagent should:
-1. Create project directory in home (e.g., `~/projects/project-name`)
-2. Run OpenCode with appropriate settings
-3. Report results back to main session
+1. **Read the opencode skill** to get correct syntax
+2. Create project directory in home (e.g., `~/projects/project-name`)
+3. Run OpenCode with appropriate settings
+4. Report results back to main session
 
 **For editing existing projects:**
 ```
 sessions_spawn:
-  task: "Use OpenCode to add authentication to the project at ~/projects/my-app"
+  task: "Read the opencode skill, then use OpenCode to add authentication to the project at ~/projects/my-app"
   label: "opencode-add-auth"
   runTimeoutSeconds: 660
 ```
