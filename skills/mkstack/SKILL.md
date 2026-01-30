@@ -13,15 +13,18 @@ MKStack is a template for building Nostr clients with compatible coding agents l
 
 ### Spawn Pattern
 
+**Parent agent instructions:**
+1. Calculate the full project path: `<workspace>/projects/<project-name>`
+2. Spawn with explicit skill usage instructions:
+
 ```
 sessions_spawn:
-  task: "Read the mkstack skill and the opencode skill, then create a new MKStack project for [describe the project]. Project name: <project-name>."
+  task: "Create a new MKStack project for [describe the project]. Project path: <workspace>/projects/<project-name>"
   label: "mkstack-<project-name>"
   runTimeoutSeconds: 660
 ```
 
 **Important:**
-- Always instruct the subagent to read BOTH skills (mkstack and opencode)
 - The subagent will handle cloning, git init, and running OpenCode
 - Use descriptive project names (lowercase, hyphens for spaces)
 
