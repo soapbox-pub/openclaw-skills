@@ -6,7 +6,9 @@ A collection of skills for [OpenClaw](https://openclaw.ai/).
 
 This repository contains skills that extend OpenClaw's capabilities:
 
-- **opencode** - Use OpenCode as a skill within OpenClaw for AI-powered code generation and development tasks
+- **opencode** - Use OpenCode for AI-powered code generation and development tasks. Build and edit projects, write code across multiple languages, and perform complex coding tasks.
+
+- **mkstack** - Create and build Nostr client websites using the MKStack template. Quickly scaffold Nostr-powered web applications with React, Vite, Tailwind CSS, and pre-built Nostr integration.
 
 ## Usage
 
