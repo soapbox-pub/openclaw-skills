@@ -1,6 +1,7 @@
 ---
 name: opencode
 description: Use OpenCode for AI-powered code generation and development tasks. OpenCode can build and edit projects and write code across multiple languages. Use when you need to generate code, create web pages, build applications, update existing applications, or perform coding tasks that would take multiple iterations.
+license: CC-BY-SA-4.0
 ---
 
 # OpenCode Skill
