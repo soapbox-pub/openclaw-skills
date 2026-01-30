@@ -19,7 +19,7 @@ MKStack is a template for building Nostr clients with compatible coding agents l
 
 ```
 sessions_spawn:
-  task: "Create a new MKStack project for [describe the project]. Project path: <workspace>/projects/<project-name>"
+  task: "CRITICAL: You MUST read the mkstack skill first, then read the opencode skill. Do NOT proceed until you have read both skills. After reading them, create a new MKStack project for [describe the project]. Follow the mkstack workflow exactly - do NOT improvise or skip the OpenCode step. Project path: <workspace>/projects/<project-name>"
   label: "mkstack-<project-name>"
   runTimeoutSeconds: 660
 ```
@@ -29,6 +29,11 @@ sessions_spawn:
 - Use descriptive project names (lowercase, hyphens for spaces)
 
 ## For the Subagent: Complete Workflow
+
+**CRITICAL: Before starting this workflow, you MUST:**
+1. Read this mkstack skill completely
+2. Read the opencode skill completely  
+3. Follow the steps below exactly — do NOT improvise, skip steps, or use alternative approaches
 
 When you are the subagent executing this skill, follow these steps:
 
