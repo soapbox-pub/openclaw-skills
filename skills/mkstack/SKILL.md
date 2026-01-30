@@ -34,8 +34,8 @@ When you are the subagent executing this skill, follow these steps:
 Clone the MKStack template into a new project directory:
 
 ```bash
-mkdir -p projects
-cd projects
+mkdir -p <workspace>/projects
+cd <workspace>/projects
 git clone https://gitlab.com/soapbox-pub/mkstack.git <project-name>
 cd <project-name>
 rm README.md
@@ -45,7 +45,10 @@ git add .
 git commit -m "Project created with MKStack: https://gitlab.com/soapbox-pub/mkstack.git"
 ```
 
-**Important:** Replace `<project-name>` with the actual project name (lowercase, hyphens for spaces).
+**Important:** 
+- Replace `<project-name>` with the actual project name (lowercase, hyphens for spaces)
+- Replace `<workspace>` with your workspace directory (e.g., `~/openclaw`)
+- **Always create projects in `<workspace>/projects/`** — not the home directory (`~`) or elsewhere
 
 ### Step 2: Run OpenCode
 
@@ -80,5 +83,6 @@ MKStack projects come pre-configured with:
 - **Read both skills** - Subagent needs mkstack AND opencode skills
 - **Always use pty:true** - OpenCode requires a pseudo-terminal
 - **Use high yieldMs** - Blocks until completion instead of backgrounding
-- **Work in <workspace>/projects/** - Keep projects organized in the projects directory
+- **Work in <workspace>/projects/** - Keep projects organized in the projects directory (inside workspace, not home directory)
 - **One project per directory** - Each MKStack project gets its own folder
+- **Create projects directory if needed** - If `<workspace>/projects/` doesn't exist, create it first with `mkdir -p <workspace>/projects`

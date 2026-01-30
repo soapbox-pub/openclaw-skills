@@ -117,9 +117,11 @@ sessions_spawn:
 
 The subagent should:
 1. **Read the opencode skill** to get correct syntax
-2. Create project directory in home (e.g., `<workspace>/projects/project-name`)
+2. Create project directory in workspace (e.g., `<workspace>/projects/project-name`) — **not home directory**
 3. Run OpenCode with appropriate settings
 4. Report results back to main session
+
+**Project Directory Rule**: Always create projects in `<workspace>/projects/` (inside your workspace directory, not the home directory). If `<workspace>/projects/` doesn't exist yet, create it first with `mkdir -p <workspace>/projects`.
 
 **For editing existing projects:**
 ```
@@ -171,7 +173,7 @@ cat /path/to/project/index.html
 ### Create a New Project
 
 ```bash
-# Create directory in workspace
+# Create directory in workspace (NOT in home directory ~)
 mkdir -p <workspace>/projects/my-project
 cd <workspace>/projects/my-project
 
@@ -179,6 +181,8 @@ cd <workspace>/projects/my-project
 opencode run --model openrouter/anthropic/claude-sonnet-4.5 \
   "Create a landing page for a coffee shop with menu, about section, and contact form. Use modern CSS, make it mobile responsive."
 ```
+
+**Important**: Always create projects in `<workspace>/projects/` (e.g., `~/openclaw/projects/`), not in the home directory (`~` or `~/projects/`). If the projects directory doesn't exist, create it first with `mkdir -p <workspace>/projects`.
 
 ### Edit an Existing Project
 
