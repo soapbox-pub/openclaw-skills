@@ -55,7 +55,7 @@ git commit -m "Project created with MKStack: https://gitlab.com/soapbox-pub/mkst
 
 **Important:** 
 - Replace `<project-name>` with the actual project name (lowercase, hyphens for spaces)
-- Replace `<workspace>` with your workspace directory (e.g., `~/openclaw`)
+- Replace `<workspace>` with your workspace directory
 - **Always create projects in `<workspace>/projects/`** — not the home directory (`~`) or elsewhere
 
 ### Step 2: Run OpenCode

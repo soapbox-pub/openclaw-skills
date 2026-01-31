@@ -182,7 +182,7 @@ opencode run --model openrouter/anthropic/claude-sonnet-4.5 \
   "Create a landing page for a coffee shop with menu, about section, and contact form. Use modern CSS, make it mobile responsive."
 ```
 
-**Important**: Always create projects in `<workspace>/projects/` (e.g., `~/openclaw/projects/`), not in the home directory (`~` or `~/projects/`). If the projects directory doesn't exist, create it first with `mkdir -p <workspace>/projects`.
+**Important**: Always create projects in `<workspace>/projects/`, not in the home directory (`~` or `~/projects/`). If the projects directory doesn't exist, create it first with `mkdir -p <workspace>/projects`.
 
 ### Edit an Existing Project
 
