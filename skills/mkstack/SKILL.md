@@ -15,11 +15,12 @@ MKStack is a template for building Nostr clients with compatible coding agents l
 
 **Parent agent instructions:**
 1. Calculate the full project path: `<workspace>/projects/<project-name>`
-2. Spawn with explicit skill usage instructions:
+2. Calculate the full paths to the SKILL.md files for the following skills: `mkstack`, `opencode`
+3. Spawn with explicit skill usage instructions:
 
 ```
 sessions_spawn:
-  task: "CRITICAL: You MUST read the mkstack skill first, then read the opencode skill. Do NOT proceed until you have read both skills. After reading them, create a new MKStack project for [describe the project]. Follow the mkstack workflow exactly - do NOT improvise or skip the OpenCode step. Project path: <workspace>/projects/<project-name>"
+  task: "CRITICAL: You MUST read the mkstack skill (<skills>/mkstack/SKILL.md) first, then read the opencode skill (<skills>/opencode/SKILL.md). Do NOT proceed until you have read both skills. After reading them, create a new MKStack project for [describe the project]. Follow the mkstack workflow exactly - do NOT improvise or skip the OpenCode step. Project path: <workspace>/projects/<project-name>"
   label: "mkstack-<project-name>"
   runTimeoutSeconds: 660
 ```
