@@ -113,7 +113,7 @@ sessions_spawn:
   runTimeoutSeconds: 660
 ```
 
-**IMPORTANT**: Always tell the subagent to read the opencode skill first. Subagents don't inherit skill knowledge from the main session and will use incorrect syntax if they don't read the skill docs.
+**IMPORTANT**: Always tell the subagent to read the opencode skill first. Subagents don't inherit skill knowledge from the main session and will use incorrect syntax if they don't read the skill docs. CRITICAL: The subagent MUST read the opencode skill completely before attempting to use OpenCode. Always include the model to use in the spawn task.
 
 The subagent should:
 1. **Read the opencode skill** to get correct syntax
