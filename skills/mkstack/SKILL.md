@@ -63,13 +63,16 @@ git commit -m "Project created with MKStack: https://gitlab.com/soapbox-pub/mkst
 Use OpenCode to build the project based on the user's description:
 
 ```bash
-cd <workspace>/projects/<project-name> && opencode run --model openrouter/anthropic/claude-sonnet-4.5 "[detailed project description]
+cd <workspace>/projects/<project-name> && opencode run --model openrouter/anthropic/claude-sonnet-4.5 "[detailed project description]"
 ```
 
 **exec parameters:**
-- `pty: true` (required for OpenCode)
+- `pty: true` **(CRITICAL - REQUIRED! Without this, you will see NO OUTPUT and OpenCode will appear to hang!)**
 - `workdir: <workspace>/projects/<project-name>`
 - `yieldMs: 600000` (blocks until completion)
+- `timeout: 600` (10 minutes)
+
+**IMPORTANT:** You MUST have read the opencode skill first to understand the correct syntax and parameters. Do NOT skip this step!
 
 ### Step 3: Report Completion
 
@@ -91,6 +94,6 @@ MKStack projects come pre-configured with:
 - **Read both skills** - Subagent needs mkstack AND opencode skills
 - **Always use pty:true** - OpenCode requires a pseudo-terminal
 - **Use high yieldMs** - Blocks until completion instead of backgrounding
-- **Work in <workspace>/projects/** - Keep projects organized in the projects directory (inside workspace, not home directory)
+- **Work in <workspace>/projects/** - Keep projects organized in the projects directory (inside your workspace, not home directory)
 - **One project per directory** - Each MKStack project gets its own folder
 - **Create projects directory if needed** - If `<workspace>/projects/` doesn't exist, create it first with `mkdir -p <workspace>/projects`
